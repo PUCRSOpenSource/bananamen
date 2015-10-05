@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="25" height="25" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="dungeontiles" tilewidth="32" tileheight="32">
+  <image source="../../../Downloads/dungeontiles.png" width="128" height="160"/>
+ </tileset>
+ <layer name="Camada de Tiles 1" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJzVk0sKwCAMRLX0/mfuShDJfBJU6GKgjZ9nMklvrfULehc9ZozFh3YxVilGdCYrxoj2rd/RP+MgBqrRvF7NA73VrX3kG/I8OqNydBgqd7fXFMPJY0dfZWYMeeL0rstw1k/N4KwsQ+UR7RkMdZ/y5AaD5ZplqBoyP9yej9goVmGw+1gdKwy33yoM13NnPrKzzNbQnP+ZcVofa7MG1w==
+  </data>
+ </layer>
+</map>
