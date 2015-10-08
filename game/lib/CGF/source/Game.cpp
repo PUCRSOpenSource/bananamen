@@ -170,7 +170,6 @@ void Game::clean()
 		states.pop();
     }
     delete hud;
-    delete screen;
 }
 
 } // namespace cgf

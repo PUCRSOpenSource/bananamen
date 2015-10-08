@@ -1,6 +1,4 @@
-/*
- * Gabriel Carlos e Vinicius Warlet
- */
+
 
 #include <iostream>
 #include <cmath>

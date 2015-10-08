@@ -1,7 +1,3 @@
-/*
- * Gabriel Carlos e Vinicius Warlet
- */
-
 #ifndef _MENU_STATE_H_
 #define _MENU_STATE_H_
 

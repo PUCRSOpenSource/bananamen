@@ -1,8 +1,3 @@
-/*
- * Gabriel Carlos e Vinicius Warlet
- */
-
-
 #ifndef PLAY_STATE_H_
 #define PLAY_STATE_H_
 

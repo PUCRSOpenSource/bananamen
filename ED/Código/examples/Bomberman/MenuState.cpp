@@ -1,7 +1,3 @@
-/*
- * Gabriel Carlos e Vinicius Warlet
- */
-
 #include <iostream>
 #include "Game.h"
 #include "InputManager.h"
