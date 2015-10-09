@@ -10,11 +10,11 @@
 
 int main(int argc, char **argv)
 {
-    cgf::Game game(5,30);
+	cgf::Game game(5,30);
 
-	game.init("Bomberman (Versao Alternativa)",480,416,false);
+		game.init("Bomberman (Versao Alternativa)",480,416,false);
 
-    game.changeState(MenuState::instance());
+	game.changeState(MenuState::instance());
 
 	while(game.isRunning())
 	{
@@ -26,5 +26,5 @@ int main(int argc, char **argv)
 	// cleanup the engine
 	game.clean();
 
-    return 0;
+	return 0;
 }

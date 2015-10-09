@@ -1,121 +1,115 @@
 #ifndef PLAY_STATE_H_
 #define PLAY_STATE_H_
 
-#include "GameState.h"
-#include "Sprite.h"
-#include "InputManager.h"
-#include <tmx/MapLoader.h>
+#include <cmath>
+#include <iostream>
 #include <string>
+#include <tmx/MapLoader.h>
+
+#include "Game.h"
+#include "GameState.h"
+#include "InputManager.h"
+#include "MenuState.h"
+#include "PauseState.h"
+#include "Sprite.h"
 
 class PlayState : public cgf::GameState
 {
-    public:
+	public:
 
-    void init();
-    void cleanup();
+		void init();
+		void cleanup();
 
-    void pause();
-    void resume();
+		void pause();
+		void resume();
 
-    void handleEvents(cgf::Game* game);
-    void update(cgf::Game* game);
-    void draw(cgf::Game* game);
+		void handleEvents(cgf::Game* game);
+		void update(cgf::Game* game);
+		void draw(cgf::Game* game);
 
-    static PlayState* instance()
-    {
-        return &m_PlayState;
-    }
+		static PlayState* instance()
+		{
+			return &m_PlayState;
+		}
 
-    protected:
+	protected:
 
-    PlayState() {}
+		PlayState() {}
+	private:
 
-    private:
+		static PlayState m_PlayState;
+		enum { RIGHT=0, LEFT, UP, DOWN };
+		std::string walkStates1[4];
+		std::string walkStates2[4];
+		int currentDir1;
+		int currentDir2;
 
-    static PlayState m_PlayState;
+		int x, y;
+		int dirx1, diry1;
+		int dirx2, diry2;
 
-    enum { RIGHT=0, LEFT, UP, DOWN };
-    std::string walkStates1[4];
-    std::string walkStates2[4];
-    int currentDir1;
-    int currentDir2;
+		int expSize1;
+		int expSize2;
 
-    int x, y;
-    int dirx1, diry1;
-    int dirx2, diry2;
+		bool bomb1on;
+		bool bomb2on;
 
-    int expSize1;
-    int expSize2;
+		bool explodiu;
+		bool colidiu;
 
-    bool bomb1on;
-    bool bomb2on;
+		bool vivo1;
+		bool vivo2;
 
-    bool explodiu;
-    bool colidiu;
+		bool fim;
 
-    bool vivo1;
-    bool vivo2;
+		bool sumir1;
+		bool sumir2;
 
-    bool fim;
+		cgf::Sprite player1;
+		cgf::Sprite player2;
+		cgf::Sprite bomb1;
+		cgf::Sprite bomb2;
+		cgf::Sprite morte;
+		cgf::Sprite morte2;
 
-    bool sumir1;
-    bool sumir2;
+		sf::Texture tTij;
+		sf::Texture tItem;
+		sf::Texture tExp;
+		sf::Sprite tijolo[100];
+		sf::Sprite explosao1[100];
+		sf::Sprite explosao2[100];
+		sf::FloatRect bboxP1;
+		sf::FloatRect bboxP2;
+		sf::FloatRect bboxT[100];
+		sf::FloatRect bboxE1[100];
+		sf::FloatRect bboxE2[100];
+		sf::Sprite item[100];
+		sf::FloatRect bboxI[100];
 
-    cgf::Sprite player1;
-    cgf::Sprite player2;
-    cgf::Sprite bomb1;
-    cgf::Sprite bomb2;
-    cgf::Sprite morte;
-    cgf::Sprite morte2;
+		sf::RenderWindow* screen;
+		cgf::InputManager* im;
 
-    sf::Texture tTij;
-    sf::Texture tItem;
-    sf::Texture tExp;
-    sf::Sprite tijolo[100];
-    sf::Sprite explosao1[100];
-    sf::Sprite explosao2[100];
-    sf::FloatRect bboxP1;
-    sf::FloatRect bboxP2;
-    sf::FloatRect bboxT[100];
-    sf::FloatRect bboxE1[100];
-    sf::FloatRect bboxE2[100];
-    sf::Sprite item[100];
-    sf::FloatRect bboxI[100];
+		tmx::MapLoader* map;
 
-    sf::SoundBuffer buffer;
-    sf::Sound sound;
+		sf::Font font;
+		sf::Text text;
 
-    sf::RenderWindow* screen;
-    cgf::InputManager* im;
+		sf::Clock clock;
+		sf::Clock clock1;
+		sf::Clock clock2;
+		sf::Clock clock3;
+		sf::Clock clock4;
 
-    tmx::MapLoader* map;
+		void updateBomb1();
+		void updateBomb2();
 
-    sf::Font font;
-    sf::Text text;
-
-    sf::Clock clock;
-    sf::Clock clock1;
-    sf::Clock clock2;
-    sf::Clock clock3;
-    sf::Clock clock4;
-
-    void updateBomb1();
-    void updateBomb2();
-
-    void explodir();
-    void colidir();
-    void expFim1();
-    void expFim2();
-    void morrer(cgf::Game* game);
-
-    // Centers the camera on the player position
-    void centerMapOnPlayer();
-
-    // Checks collision between a sprite and a map layer
-    bool checkCollision(uint8_t layer, cgf::Game* game, cgf::Sprite* obj);
-
-    // get a cell GID from the map (x and y in world coords)
-    sf::Uint16 getCellFromMap(uint8_t layernum, float x, float y);
+		void explodir();
+		void colidir();
+		void expFim1();
+		void expFim2();
+		void morrer(cgf::Game* game);
+		void centerMapOnPlayer();
+		bool checkCollision(uint8_t layer, cgf::Game* game, cgf::Sprite* obj);
+		sf::Uint16 getCellFromMap(uint8_t layernum, float x, float y);
 };
-
 #endif
