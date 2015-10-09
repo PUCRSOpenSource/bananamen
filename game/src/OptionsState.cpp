@@ -1,15 +1,11 @@
-#include <iostream>
-#include "Game.h"
-#include "InputManager.h"
 #include "OptionsState.h"
-#include "PlayState.h"
-#include "MenuState.h"
 
 OptionsState OptionsState::m_OptionsState;
 
 using namespace std;
 
-void OptionsState::init()
+void
+OptionsState::init()
 {
     optionsSprite.load("data/img/prototipocomandos.png");
     optionsSprite.setPosition(50,50);
@@ -20,22 +16,26 @@ void OptionsState::init()
     cursor.setScale(0.05,0.05);
 }
 
-void OptionsState::cleanup()
+void
+OptionsState::cleanup()
 {
     cout << "OptionsState Cleanup Successful" << endl;
 }
 
-void OptionsState::pause()
+void
+OptionsState::pause()
 {
     cout << "OptionsState Paused" << endl;
 }
 
-void OptionsState::resume()
+void
+OptionsState::resume()
 {
     cout << "OptionsState Resumed" << endl;
 }
 
-void OptionsState::handleEvents(cgf::Game* game)
+void
+OptionsState::handleEvents(cgf::Game* game)
 {
     sf::Event event;
     sf::RenderWindow* screen = game->getScreen();
@@ -61,16 +61,15 @@ void OptionsState::handleEvents(cgf::Game* game)
     }
 }
 
-void OptionsState::update(cgf::Game* game)
+void
+OptionsState::update(cgf::Game* game)
 {
 }
 
-void OptionsState::draw(cgf::Game *game)
+void
+OptionsState::draw(cgf::Game *game)
 {
     game->getScreen()->clear(sf::Color(255,255,255));
     game->getScreen()->draw(optionsSprite);
     game->getScreen()->draw(cursor);
 }
-
-
-

@@ -1,15 +1,11 @@
-#include <iostream>
-#include "Game.h"
-#include "InputManager.h"
 #include "MenuState.h"
-#include "PlayState.h"
-#include "OptionsState.h"
 
 MenuState MenuState::m_MenuState;
 
 using namespace std;
 
-void MenuState::init()
+void
+MenuState::init()
 {
 	menuSprite.load("data/img/prototipomenu.png");
 	menuSprite.setPosition(50,50);
@@ -19,22 +15,26 @@ void MenuState::init()
 	cursor.setScale(0.05,0.05);
 }
 
-void MenuState::cleanup()
+void
+MenuState::cleanup()
 {
 	cout << "MenuState Cleanup Successful" << endl;
 }
 
-void MenuState::pause()
+void
+MenuState::pause()
 {
 	cout << "MenuState Paused" << endl;
 }
 
-void MenuState::resume()
+void
+MenuState::resume()
 {
 	cout << "MenuState Resumed" << endl;
 }
 
-void MenuState::handleEvents(cgf::Game* game)
+void
+MenuState::handleEvents(cgf::Game* game)
 {
 	sf::Event event;
 	sf::RenderWindow* screen = game->getScreen();
@@ -66,11 +66,13 @@ void MenuState::handleEvents(cgf::Game* game)
 	}
 }
 
-void MenuState::update(cgf::Game* game)
+void
+MenuState::update(cgf::Game* game)
 {
 }
 
-void MenuState::draw(cgf::Game *game)
+void
+MenuState::draw(cgf::Game *game)
 {
 	game->getScreen()->clear(sf::Color(255,255,255));
 	game->getScreen()->draw(menuSprite);

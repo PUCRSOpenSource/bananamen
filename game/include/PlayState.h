@@ -19,10 +19,8 @@ class PlayState : public cgf::GameState
 
 		void init();
 		void cleanup();
-
 		void pause();
 		void resume();
-
 		void handleEvents(cgf::Game* game);
 		void update(cgf::Game* game);
 		void draw(cgf::Game* game);
