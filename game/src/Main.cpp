@@ -8,7 +8,8 @@
 #include "MenuState.h"
 #include "PauseState.h"
 
-int main(int argc, char **argv)
+int
+main(void)
 {
 	cgf::Game game(5,30);
 
