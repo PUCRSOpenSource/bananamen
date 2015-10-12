@@ -27,9 +27,145 @@
 
 \section{Introdução}
 
+	Esta é uma versão do clássico Bomberman, um jogo de ação
+	e puzzle, cujo objetivo é completar as fases colocando
+	bombas de forma estratégica para destruir obstáculos e
+	inimigos.
+
 \section{Características}
 
+	O universo de Bomberman possui a clássica arena, onde o
+	jogador é colocado junto com inimigos (outros jogadores)
+	e precisa eliminá-los para se libertar. Para isso o
+	jogador conta com bombas que podem ser ativadas, uma por
+	vez, para explodir inimigos ou obstáculos, tomando
+	cuidado, pois a bomba pode explodir o próprio jogador. O
+	jogador poderá contar com itens auxiliares, cards que
+	encontrará nos obstáculos destruídos, que irão aumentar
+	seu poder de ataque e consequentemente suas chances de
+	sucesso.
+
+	A jogabilidade envolvida neste jogo é bem simples. O
+	jogo fica em uma tela única com uma vista de cima. Nesta
+	tela o jogador pode mover-se horizontalmente ou
+	verticalmente. Ao colocar uma bomba, que levará algum
+	tempo até que se exploda, permitindo-lhe tempo para
+	fugir.
+
+	Se a bomba atingir um tijolo ele será destruído, com a
+	chance de que no lugar do tijolo apareça um card de
+	power up. O jogador que passar por cima desse card terá
+	o raio de ataque de sua bomba aumentado, melhorando suas
+	chances de eliminar o adversário.  O jogo é multiplayer,
+	modo batalha, ou seja, um jogador contra o outro. O
+	primeiro jogador pode se mover com as SETAS do teclado e
+	colocar a bomba no RCtrl, o segundo jogador move-se
+	pelas teclas W,A,S,D e coloca bomba na tecla ESPAÇO. O
+	jogador que morrer primeiro perde, caso os dois
+	jogadores morram ao mesmo tempo, será considerado
+	empate.
+
+	O mapa padrão é um gramado com bordas de concreto que
+	impossibilitam o jogador de deixar o cenário. Além de
+	blocos de concreto posicionados pela fase. Esses blocos,
+	assim como as paredes, não podem ser destruídos. Há
+	também tijolos espalhados pelo mapa, que devem ser
+	destruídos para abrir caminho, podendo conter itens de
+	aprimoramento do personagem (cards de power up).
+
+	O jogo contará com 3 (três) mapas, apenas 1 (um)
+	disponível na fase um do projeto.  Os mapas se
+	encontram na pasta mapas com a nomeclatura:
+
+	\begin{itemize}
+		\item Mapa1 (etapa 1)
+		\item Mapa2 (etapa 2)
+		\item Mapa3 (etapa 3)
+	\end{itemize}
+
+	Os mapas possuem características diferentes,
+	dificultando a sobrevivência dos jogadores.
+
+	O jogo possui uma tela inicial (Menu) com a opção de
+	começar o jogo e escolher a fase. Há uma tela de pausa
+	do jogo, caso o jogador queira pausar durante a partida.
+	Além dos avisos “Jogador 1 Venceu!” ou “Jogador 2
+	Venceu!”, dependendo de quem ganhe a partida. Emcaso de
+	empate aparecerá a mensagem “Empate!” na tela. Após
+	alguns segundos são redirecionados para o menu, para
+	escolher uma nova fase
+
 \section{Requisitos de arte e áudio}
+
+	Há uma música de fundo no menu, assim como durante a
+	partida. Efeitos de áudio quando a bomba for colocada,
+	um item for coletado e quando uma bomba explodir. No
+	final da partida há um som caso o jogador tenha ganho e
+	outro caso tenha perdido.
+
+	Os requisitos de áudio se encontram na pasta áudio
+	com a seguinte nomeclatura.
+
+	\begin{itemize}
+		\item Menu
+		\item Fase1
+		\item Fase2
+		\item Fase3
+		\item ColetaDeItem
+		\item Ganhou
+		\item Perdeu
+		\item Pause
+		\item ColocouBomba
+		\item ExplodiuBomba
+	\end{itemize}
+
+	O projeto conta com os seguintes assets:
+
+	\begin{itemize}
+		\item \textbf{Sprites}
+			\begin{itemize}
+
+				\item Personagem1
+				\item Personagem2
+				\item Bomba
+				\item Explosão
+
+			\end{itemize}
+			
+		\item \textbf{Mapas}
+			\begin{itemize}
+
+				\item Mapa1
+				\item Mapa2
+				\item Mapa3
+
+			\end{itemize}
+
+		\item \textbf{Áudio}
+			\begin{itemize}
+
+				\item Menu
+				\item Fase1
+				\item Fase2
+				\item Fase3
+				\item ColetaDeItem
+				\item Ganhou
+				\item Perdeu
+				\item Pause
+				\item ColocouBomba
+				\item ExplodiuBomba
+
+			\end{itemize}
+
+		\item \textbf{Protótipos}
+			\begin{itemize}
+
+				\item PrototipoMenu
+				\item Prototipoescolhadefase
+				\item Protipopausa
+
+			\end{itemize}
+	\end{itemize}
 
 \section{Cronograma}
 
