@@ -1723,7 +1723,7 @@
 	"PlayState.h"
 	"MenuState.h"
 
-1444078183 source:/home/djornada/.projects/curly-octo-waddle/ED/Código/examples/Bomberman/main.cpp
+1445124842 source:/home/djornada/.projects/curly-octo-waddle/ED/Código/examples/Bomberman/main.cpp
 	<iostream>
 	<cstdlib>
 	<string>
@@ -2170,12 +2170,17 @@
 	<SFML/System/Time.hpp>
 	<SFML/System/Clock.hpp>
 
-1444078179 /home/djornada/.projects/curly-octo-waddle/ED/Código/examples/Bomberman/PlayState.h
-	"GameState.h"
-	"Sprite.h"
-	"InputManager.h"
-	<tmx/MapLoader.h>
+1445282012 /home/djornada/.projects/curly-octo-waddle/ED/Código/examples/Bomberman/PlayState.h
+	<cmath>
+	<iostream>
 	<string>
+	<tmx/MapLoader.h>
+	"Game.h"
+	"GameState.h"
+	"InputManager.h"
+	"MenuState.h"
+	"PauseState.h"
+	"Sprite.h"
 
 1444077877 /home/djornada/.projects/curly-octo-waddle/ED/Código/lib/CGF/include/GameState.h
 	"Game.h"
@@ -2236,50 +2241,44 @@
 	<math.h>
 	<SFML/Graphics/Rect.hpp>
 
-1444078191 /home/djornada/.projects/curly-octo-waddle/ED/Código/examples/Bomberman/MenuState.h
+1445282012 /home/djornada/.projects/curly-octo-waddle/ED/Código/examples/Bomberman/MenuState.h
+	<iostream>
+	"Game.h"
 	"GameState.h"
+	"InputManager.h"
+	"OptionsState.h"
+	"PlayState.h"
 	"Sprite.h"
 
-1444078174 /home/djornada/.projects/curly-octo-waddle/ED/Código/examples/Bomberman/PauseState.h
-	"GameState.h"
-	"Sprite.h"
-	"InputManager.h"
-	<tmx/MapLoader.h>
+1445282012 /home/djornada/.projects/curly-octo-waddle/ED/Código/examples/Bomberman/PauseState.h
+	<iostream>
 	<string>
-
-1444078187 source:/home/djornada/.projects/curly-octo-waddle/ED/Código/examples/Bomberman/MenuState.cpp
-	<iostream>
+	<tmx/MapLoader.h>
 	"Game.h"
-	"InputManager.h"
-	"MenuState.h"
-	"PlayState.h"
-	"OptionsState.h"
-
-1444078201 /home/djornada/.projects/curly-octo-waddle/ED/Código/examples/Bomberman/OptionsState.h
 	"GameState.h"
+	"InputManager.h"
+	"InputManager.h"
+	"PlayState.h"
 	"Sprite.h"
 
-1444078205 source:/home/djornada/.projects/curly-octo-waddle/ED/Código/examples/Bomberman/OptionsState.cpp
+1445281974 source:/home/djornada/.projects/curly-octo-waddle/ED/Código/examples/Bomberman/MenuState.cpp
+	"MenuState.h"
+
+1445282012 /home/djornada/.projects/curly-octo-waddle/ED/Código/examples/Bomberman/OptionsState.h
 	<iostream>
 	"Game.h"
+	"GameState.h"
 	"InputManager.h"
+	"MenuState.h"
+	"PlayState.h"
+	"Sprite.h"
+
+1445281974 source:/home/djornada/.projects/curly-octo-waddle/ED/Código/examples/Bomberman/OptionsState.cpp
 	"OptionsState.h"
-	"PlayState.h"
-	"MenuState.h"
 
-1444078196 source:/home/djornada/.projects/curly-octo-waddle/ED/Código/examples/Bomberman/PauseState.cpp
-	<iostream>
-	"Game.h"
-	"InputManager.h"
+1445281974 source:/home/djornada/.projects/curly-octo-waddle/ED/Código/examples/Bomberman/PauseState.cpp
 	"PauseState.h"
-	"PlayState.h"
 
-1444078249 source:/home/djornada/.projects/curly-octo-waddle/ED/Código/examples/Bomberman/PlayState.cpp
-	<iostream>
-	<cmath>
-	"Game.h"
+1445281974 source:/home/djornada/.projects/curly-octo-waddle/ED/Código/examples/Bomberman/PlayState.cpp
 	"PlayState.h"
-	"InputManager.h"
-	"PauseState.h"
-	"MenuState.h"
 
