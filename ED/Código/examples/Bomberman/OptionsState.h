@@ -1,42 +1,44 @@
 #ifndef _OPTIONS_STATE_H_
 #define _OPTIONS_STATE_H_
 
+#include <iostream>
+
+#include "Game.h"
 #include "GameState.h"
+#include "InputManager.h"
+#include "MenuState.h"
+#include "PlayState.h"
 #include "Sprite.h"
 
 class OptionsState : public cgf::GameState
 {
-    public:
+	public:
 
-    void init();
-    void cleanup();
+		void init();
+		void cleanup();
 
-    void pause();
-    void resume();
+		void pause();
+		void resume();
 
-    void handleEvents(cgf::Game* game);
-    void update(cgf::Game* game);
-    void draw(cgf::Game* game);
+		void handleEvents(cgf::Game* game);
+		void update(cgf::Game* game);
+		void draw(cgf::Game* game);
 
-    static OptionsState* instance()
-    {
-        return &m_OptionsState;
-    }
+		static OptionsState* instance()
+		{
+			return &m_OptionsState;
+		}
 
-    protected:
+	protected:
 
-    OptionsState() {}
+		OptionsState() {}
 
-    private:
+	private:
 
-    static OptionsState m_OptionsState;
+		static OptionsState m_OptionsState;
 
-    cgf::Sprite optionsSprite;
-    cgf::Sprite cursor;
+		cgf::Sprite optionsSprite;
+		cgf::Sprite cursor;
 
 };
-
 #endif
-
-
-

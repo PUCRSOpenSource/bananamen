@@ -1,48 +1,53 @@
 #ifndef _PAUSE_STATE_H_
 #define _PAUSE_STATE_H_
 
-#include "GameState.h"
-#include "Sprite.h"
-#include "InputManager.h"
-#include <tmx/MapLoader.h>
+#include <iostream>
 #include <string>
+#include <tmx/MapLoader.h>
+
+#include "Game.h"
+#include "GameState.h"
+#include "InputManager.h"
+#include "InputManager.h"
+#include "PlayState.h"
+#include "Sprite.h"
 
 class PauseState : public cgf::GameState
 {
-    public:
+	public:
 
-    void init();
-    void cleanup();
+		void init();
+		void cleanup();
 
-    void pause();
-    void resume();
+		void pause();
+		void resume();
 
-    void handleEvents(cgf::Game* game);
-    void update(cgf::Game* game);
-    void draw(cgf::Game* game);
+		void handleEvents(cgf::Game* game);
+		void update(cgf::Game* game);
+		void draw(cgf::Game* game);
 
-    static PauseState* instance()
-    {
-        return &m_PauseState;
-    }
+		static PauseState* instance()
+		{
+			return &m_PauseState;
+		}
 
-    protected:
+	protected:
 
-    PauseState() {}
+		PauseState() {}
 
-    private:
+	private:
 
-    static PauseState m_PauseState;
+		static PauseState m_PauseState;
 
-    cgf::Sprite pauseSprite;
+		cgf::Sprite pauseSprite;
 
-    cgf::Sprite player1;
-    cgf::Sprite player2;
-    cgf::Sprite bomb1;
-    cgf::Sprite bomb2;
+		cgf::Sprite player1;
+		cgf::Sprite player2;
+		cgf::Sprite bomb1;
+		cgf::Sprite bomb2;
 
-    sf::RenderWindow* screen;
-    tmx::MapLoader* map;
+		sf::RenderWindow* screen;
+		tmx::MapLoader* map;
 };
 #endif
 
