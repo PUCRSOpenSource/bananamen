@@ -4,7 +4,7 @@
 
 \usepackage{graphicx,url}
 
-\usepackage[brazil]{babel}   
+%\usepackage[brazil]{babel}   
 %\usepackage[latin1]{inputenc}  
 \usepackage[utf8]{inputenc}  
 % UTF-8 encoding is recommended by ShareLaTex
@@ -58,41 +58,44 @@
 	O universo de Bomberman possui a clássica arena, onde o
 	jogador é colocado junto com inimigos (outros jogadores)
 	e precisa eliminá-los para se libertar. Para isso o
-	jogador conta com bombas que podem ser ativadas, uma por
-	vez, para explodir inimigos ou obstáculos, tomando
-	cuidado, pois a bomba pode explodir o próprio jogador. O
-	jogador poderá contar com itens auxiliares, cards que
-	encontrará nos obstáculos destruídos, que irão aumentar
-	seu poder de ataque e consequentemente suas chances de
-	sucesso.
+	jogador conta com bananas que podem ser plantadas 
+	para explodir inimigos ou obstáculos. Porém, o jogador 
+	deve tomar cuidado, já que a bomba que ele plantou pode
+	explodí-lo também. Existem também NPCs que podem ajudar 
+	ou atrapalhar o jogador, entregando itens ou "comendo"
+	as suas bombas.
 
-	A jogabilidade envolvida neste jogo é bem simples. O
+	A jogabilidade envolvida neste jogo é bem simples: o
 	jogo fica em uma tela única com uma vista de cima. Nesta
 	tela o jogador pode mover-se horizontalmente ou
 	verticalmente. Ao colocar uma banana, que levará algum
 	tempo até que se exploda, permitindo-lhe tempo para
 	fugir.
 
-	Se a bomba atingir um tijolo ele será destruído, com a
-	chance de que no lugar do tijolo apareça um card de
-	power up. O jogador que passar por cima desse card terá
-	o raio de ataque de sua bomba aumentado, melhorando suas
-	chances de eliminar o adversário.  O jogo é multiplayer,
-	modo batalha, ou seja, um jogador contra o outro. O
-	primeiro jogador pode se mover com as SETAS do teclado e
-	colocar a bomba no RCtrl, o segundo jogador move-se
-	pelas teclas W,A,S,D e coloca bomba na tecla ESPAÇO. O
-	jogador que morrer primeiro perde, caso os dois
-	jogadores morram ao mesmo tempo, será considerado
-	empate.
+	Se a bomba atingir um obstáculo, ele será destruído. 
+	O jogo é multiplayer com rivalidade, ou seja, os jogadores
+	são adversários um do outro. O primeiro jogador pode 
+	se mover com as SETAS do teclado e colocar a bomba 
+	no RCtrl, o segundo jogador move-se pelas teclas WASD 
+	e coloca bomba na tecla ESPAÇO. O jogador que morrer 
+	primeiro perde, caso os dois jogadores morram ao mesmo 
+	tempo, será considerado empate.
 
-	O mapa padrão é um gramado com bordas de concreto que
-	impossibilitam o jogador de deixar o cenário. Além de
-	blocos de concreto posicionados pela fase. Esses blocos,
-	assim como as paredes, não podem ser destruídos. Há
-	também tijolos espalhados pelo mapa, que devem ser
-	destruídos para abrir caminho, podendo conter itens de
-	aprimoramento do personagem (cards de power up).
+	Os itens podem ser upgrades ou downgrades, e o efeito
+	é escolhido aleatoriamente quando o jogador o pega.
+	Cada item pode alterar uma das seguintes propriedades:
+	\begin{itemize}
+	\item Velocidade de movimento;
+	\item Cooldown da bomba;
+	\item Range da bomba;
+	\end{itemize}
+
+	Os NPCs do mapa são macacos, que andam entre os arbustos
+	do mapa. Quando uma banana é plantada perto de um macaco,
+	ele vai tentar ir até elas para comê-la. Se ele conseguir, 
+	a bomba é desarmada. Os macacos também podem colocar um
+	item surpresa no chão. Os jogadores não podem interagir
+	 ou atacar os macacos, apenas tentar evitá-los.
 
 	O jogo contará com 3 (três) mapas, apenas 1 (um)
 	disponível na fase um do projeto.  Os mapas se
