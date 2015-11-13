@@ -1,18 +1,10 @@
-/*
- *  PlayState.h
- *  Normal "play" state
- *
- *  Created by Marcelo Cohen on 08/13.
- *  Copyright 2013 PUCRS. All rights reserved.
- *
- */
-
 #ifndef PLAY_STATE_H_
 #define PLAY_STATE_H_
 
 #include "GameState.h"
 #include "Sprite.h"
 #include "InputManager.h"
+#include <tmx/MapLoader.h>
 
 class PlayState : public cgf::GameState
 {
@@ -42,11 +34,10 @@ class PlayState : public cgf::GameState
 
     static PlayState m_PlayState;
 
+    tmx::MapLoader* map;
     int x, y;
     int dirx, diry;
     cgf::Sprite player;
-    cgf::Sprite playSprite2;
-    cgf::Sprite playSprite3;
     sf::RenderWindow* screen;
     cgf::InputManager* im;
 };
