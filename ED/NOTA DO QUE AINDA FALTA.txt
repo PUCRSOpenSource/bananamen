@@ -1,5 +1,0 @@
-- colisao entre explosao e paredes (sf::Sprite e Tiles)
-- colisao entre player e tijolo (cgf::Sprite e sf:Sprite)
-- sons
-- distribuir corretamente tijolos e itens
-- quando algum player morrer, reiniciar o jogo
