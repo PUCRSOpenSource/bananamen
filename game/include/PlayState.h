@@ -1,12 +1,14 @@
 #ifndef PLAY_STATE_H_
 #define PLAY_STATE_H_
 
-#include "GameState.h"
-#include "Sprite.h"
-#include "Physics.h"
-#include "InputManager.h"
-#include <tmx/MapLoader.h>
 #include <string>
+
+#include <tmx/MapLoader.h>
+
+#include "GameState.h"
+#include "InputManager.h"
+#include "Sprite.h"
+#include "Player.h"
 
 class PlayState : public cgf::GameState
 {
@@ -38,11 +40,6 @@ class PlayState : public cgf::GameState
 
 		bool firstTime;
 
-		// Physics support
-		cgf::Physics* phys;
-		b2Body* bplayer, *bghost;
-		enum { PLAYER, GHOST, WALL };
-
 		enum { RIGHT=0, LEFT, UP, DOWN };
 		std::string walkStates[4];
 		int currentDir;
@@ -51,7 +48,7 @@ class PlayState : public cgf::GameState
 		int dirx, diry;
 		int ghostDirx;
 
-		cgf::Sprite player;
+		Player* player;
 		cgf::Sprite ghost;
 
 		sf::RenderWindow* screen;
