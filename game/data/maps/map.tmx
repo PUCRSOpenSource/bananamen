@@ -28,17 +28,17 @@
    eJxjYmBgYBrFo3gUMwAAWFoBhw==
   </data>
  </layer>
- <layer name="water" width="15" height="13">
+ <layer name="border" width="15" height="13">
   <data encoding="base64" compression="zlib">
    eJxjZmBgYKYAkwNG9Y7qpaVecjEA8ewAnQ==
   </data>
  </layer>
  <layer name="bushes" width="15" height="13">
   <data encoding="base64" compression="zlib">
-   eJxjYKAMMCJhcvSim8FIhBwuM9DFsKnD5Q5s9uMyG5c70dUQAtjswqcfV1jgcisu+4hxDyG7cYUJul5CYoTijRhAbvpDBwBmiABA
+   eJxjYKAcMEIxPnlC4oTY2MxAlsOnh5DbcNmNz1586hhxqCHGLcQAfP7D5zZyw4hYc/GFFSMOdfjCnhhAKO2RAgBPaAAz
   </data>
  </layer>
- <layer name="spawns" width="15" height="13" visible="0">
+ <layer name="spawns" width="15" height="13">
   <data encoding="base64" compression="zlib">
    eJxjYBhYwDLA9o+CwQFYB9oBQAAAD9AACg==
   </data>
