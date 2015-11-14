@@ -3,43 +3,73 @@
 
 #include "GameState.h"
 #include "Sprite.h"
+#include "Physics.h"
 #include "InputManager.h"
 #include <tmx/MapLoader.h>
+#include <string>
 
 class PlayState : public cgf::GameState
 {
-    public:
+	public:
 
-    void init();
-    void cleanup();
+		void init();
+		void cleanup();
 
-    void pause();
-    void resume();
+		void pause();
+		void resume();
 
-    void handleEvents(cgf::Game* game);
-    void update(cgf::Game* game);
-    void draw(cgf::Game* game);
+		void handleEvents(cgf::Game* game);
+		void update(cgf::Game* game);
+		void draw(cgf::Game* game);
 
-    // Implement Singleton Pattern
-    static PlayState* instance()
-    {
-        return &m_PlayState;
-    }
+		// Implement Singleton Pattern
+		static PlayState* instance()
+		{
+			return &m_PlayState;
+		}
 
-    protected:
+	protected:
 
-    PlayState() {}
+		PlayState() {}
 
-    private:
+	private:
 
-    static PlayState m_PlayState;
+		static PlayState m_PlayState;
 
-    tmx::MapLoader* map;
-    int x, y;
-    int dirx, diry;
-    cgf::Sprite player;
-    sf::RenderWindow* screen;
-    cgf::InputManager* im;
+		bool firstTime;
+
+		// Physics support
+		cgf::Physics* phys;
+		b2Body* bplayer, *bghost;
+		enum { PLAYER, GHOST, WALL };
+
+		enum { RIGHT=0, LEFT, UP, DOWN };
+		std::string walkStates[4];
+		int currentDir;
+
+		int x, y;
+		int dirx, diry;
+		int ghostDirx;
+
+		cgf::Sprite player;
+		cgf::Sprite ghost;
+
+		sf::RenderWindow* screen;
+		cgf::InputManager* im;
+
+		tmx::MapLoader* map;
+
+		sf::Font font;
+		sf::Text text;
+
+		// Centers the camera on the player position
+		void centerMapOnPlayer();
+
+		// Checks collision between a sprite and a map layer
+		bool checkCollision(uint8_t layer, cgf::Game* game, cgf::Sprite* obj);
+
+		// get a cell GID from the map (x and y in world coords)
+		sf::Uint16 getCellFromMap(uint8_t layernum, float x, float y);
 };
 
 #endif
