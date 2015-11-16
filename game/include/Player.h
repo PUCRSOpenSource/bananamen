@@ -3,7 +3,6 @@
 
 #include "Sprite.h"
 #include "Game.h"
-#include "Direction.hpp"
 
 class Player
 {

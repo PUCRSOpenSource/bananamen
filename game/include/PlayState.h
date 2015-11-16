@@ -40,30 +40,23 @@ class PlayState : public cgf::GameState
 
 		bool firstTime;
 
-		enum { RIGHT=0, LEFT, UP, DOWN };
 		std::string walkStates[4];
 		int currentDir;
 
 		int x, y;
-		int dirx, diry;
+		int dirX, dirY;
 		int ghostDirx;
 
 		Player* player;
-		cgf::Sprite ghost;
-
 		sf::RenderWindow* screen;
 		cgf::InputManager* im;
-
 		tmx::MapLoader* map;
 
 		sf::Font font;
 		sf::Text text;
 
-		// Centers the camera on the player position
-		void centerMapOnPlayer();
-
 		// Checks collision between a sprite and a map layer
-		bool checkCollision(uint8_t layer, cgf::Game* game, cgf::Sprite* obj);
+		//bool checkCollision(uint8_t layer, cgf::Game* game, cgf::Sprite* obj);
 
 		// get a cell GID from the map (x and y in world coords)
 		sf::Uint16 getCellFromMap(uint8_t layernum, float x, float y);

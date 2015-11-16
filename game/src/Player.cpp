@@ -19,10 +19,8 @@ cgf::Sprite Player::getSprite()
 }
 void Player::move(int dirX, int dirY, cgf::Game* game)
 {
-	float x = sprite.getPosition().x;
-	float y = sprite.getPosition().y;
-	x += dirX*5;
-	y += dirY*5;
+	float x = sprite.getPosition().x + dirX*5;
+	float y = sprite.getPosition().y + dirY*5;
 	sprite.setPosition(x,y);
 	sprite.update(game->getUpdateInterval());
 }
