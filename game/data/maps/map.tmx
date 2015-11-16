@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="15" height="13" tilewidth="32" tileheight="32" nextobjectid="1">
- <tileset firstgid="1" name="bananamentiles" tilewidth="32" tileheight="32" tilecount="100">
-  <image source="bananamentiles.png" width="320" height="320"/>
- </tileset>
+ <tileset firstgid="1" source="tileset1.tsx"/>
  <layer name="ground" width="15" height="13">
   <data encoding="base64" compression="zlib">
    eJxjZmBgYB7Fo3gUMwAAgwECSg==
@@ -15,12 +13,12 @@
  </layer>
  <layer name="bushes" width="15" height="13">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUgAAAAwwAAQ==
+   eJxjYKAcMBLgE6OXWJoU+3HpZUQTY8Qhhs9eYsQJhQsue9HF0N2DzW5iwhybPdjsxeduUuKFkDpCfiIWUKIXGQAAUWgAMw==
   </data>
  </layer>
- <layer name="spawns" width="15" height="13">
+ <layer name="spawns" width="15" height="13" visible="0">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUgAAAAwwAAQ==
+   eJxjYKAMsFCofxSMAmoAViqYAQAPkAAK
   </data>
  </layer>
 </map>
