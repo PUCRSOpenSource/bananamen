@@ -3,12 +3,12 @@
  <image source="bananamentiles.png" width="320" height="320"/>
  <tile id="0">
   <objectgroup draworder="index">
-   <object id="0" x="0.125" y="0.125" width="31.875" height="32"/>
+   <object id="0" x="0" y="0" width="32" height="32"/>
   </objectgroup>
  </tile>
  <tile id="1">
   <objectgroup draworder="index">
-   <object id="0" x="0" y="0" width="32.125" height="32.125"/>
+   <object id="0" x="0" y="0" width="32" height="32"/>
   </objectgroup>
  </tile>
 </tileset>
