@@ -8,6 +8,7 @@ IDIR = -I./lib/CGF/include
 IDIR += -I./lib/CGF/include/tmx
 IDIR += -I./lib/CGF/include/pugixml
 IDIR += -I./lib/Box2D-2.3.0/include
+IDIR += -I./lib/SFML-2.2/include
 
 LIBDIR = -L ./lib 
 LIBDIR += -L ./lib/Box2D-2.3.0/lib-Linux64/ 
