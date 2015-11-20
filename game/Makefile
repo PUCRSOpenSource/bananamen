@@ -17,7 +17,6 @@ LIBDIR += -L ./lib/glew-1.10
 
 CFLAGS = -std=c++11 $(LIBDIR) -I$(HDIR) $(IDIR) -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lBox2D -lCGF-Linux -lz 
 
-
 _DEPS = Banana.h Enemy.h Item.h Map.h MenuState.h Player.h PlayState.h State.h
 DEPS  = $(patsubst %,$(HDIR)/%,$(_DEPS))
 

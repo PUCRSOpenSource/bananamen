@@ -80,6 +80,7 @@ void PlayState::handleEvents(cgf::Game* game)
 void PlayState::update(cgf::Game* game)
 {
 	screen = game->getScreen();
+	player1->move(game);
 }
 
 void PlayState::draw(cgf::Game* game)

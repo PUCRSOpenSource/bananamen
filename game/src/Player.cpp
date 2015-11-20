@@ -23,6 +23,7 @@ void Player::move(cgf::Game* game)
 	float y = sprite.getPosition().y + dirY*5;
 	sprite.setPosition(x,y);
 	sprite.update(game->getUpdateInterval());
+	dirX = dirY = 0;
 }
 void Player::plantBanana()
 {
