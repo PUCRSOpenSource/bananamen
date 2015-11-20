@@ -10,11 +10,11 @@ using namespace std;
 
 void PlayState::init()
 {
-	dirX = dirY = 0;
-	map = new tmx::MapLoader("data/maps");
-	map->Load("map.tmx");
+	player1 = new Player("data/img/p1.png", 40, 40);
+	player2 = new Player("data/img/p2.png", 80, 80);
 
-	player = new Player("data/img/p1.png", 40, 40);
+	map = new Map("map.tmx", 2);
+	//map->Load("map.tmx");
 
 	im = cgf::InputManager::instance();
 
@@ -32,7 +32,6 @@ void PlayState::init()
 void PlayState::cleanup()
 {
 	delete map;
-	delete player;
 	cout << "PlayState: Clean" << endl;
 }
 
@@ -49,7 +48,7 @@ void PlayState::resume()
 void PlayState::handleEvents(cgf::Game* game)
 {
 	screen = game->getScreen();
-	sf::View view = screen->getView(); // gets the view
+	sf::View view = screen->getView();
 	sf::Event event;
 
 	while (screen->pollEvent(event))
@@ -60,16 +59,16 @@ void PlayState::handleEvents(cgf::Game* game)
 	int newDir = currentDir;
 
 	if(im->testEvent("left"))
-		dirX = -1;
+		player1->setDirX(-1);
 
 	if(im->testEvent("right"))
-		dirX = 1;
+		player1->setDirX(1);
 
-	if(im->testEvent("up")) 
-		dirY = -1;
+	if(im->testEvent("up"))
+		player1->setDirY(-1);
 
-	if(im->testEvent("down")) 
-		dirY = 1;
+	if(im->testEvent("down"))
+		player1->setDirY(1);
 
 	if(im->testEvent("quit") || im->testEvent("rightclick"))
 		game->quit();
@@ -81,13 +80,12 @@ void PlayState::handleEvents(cgf::Game* game)
 void PlayState::update(cgf::Game* game)
 {
 	screen = game->getScreen();
-	player->move(dirX, dirY, game);
-	dirX = dirY = 0;
 }
 
 void PlayState::draw(cgf::Game* game)
 {
 	screen = game->getScreen();
-	map->Draw(*screen);
-	screen->draw(player->getSprite());
+	map->draw(screen);
+	screen->draw(player1->getSprite());
+	screen->draw(player2->getSprite());
 }

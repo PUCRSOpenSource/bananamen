@@ -8,7 +8,7 @@
 #include "GameState.h"
 #include "InputManager.h"
 #include "Sprite.h"
-#include "Player.h"
+#include "Map.h"
 
 class PlayState : public cgf::GameState
 {
@@ -31,7 +31,6 @@ class PlayState : public cgf::GameState
 		}
 
 	protected:
-
 		PlayState() {}
 
 	private:
@@ -44,13 +43,13 @@ class PlayState : public cgf::GameState
 		int currentDir;
 
 		int x, y;
-		int dirX, dirY;
 		int ghostDirx;
 
-		Player* player;
 		sf::RenderWindow* screen;
 		cgf::InputManager* im;
-		tmx::MapLoader* map;
+		Map* map;
+		Player* player1;
+		Player* player2;
 
 		sf::Font font;
 		sf::Text text;

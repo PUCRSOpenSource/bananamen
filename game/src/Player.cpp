@@ -17,14 +17,22 @@ cgf::Sprite Player::getSprite()
 {
 	return sprite;
 }
-void Player::move(int dirX, int dirY, cgf::Game* game)
+void Player::move(cgf::Game* game)
 {
 	float x = sprite.getPosition().x + dirX*5;
 	float y = sprite.getPosition().y + dirY*5;
 	sprite.setPosition(x,y);
 	sprite.update(game->getUpdateInterval());
 }
-void plantBanana()
+void Player::plantBanana()
 {
 	
+}
+void Player::setDirX(int x)
+{
+	dirX = x;
+}
+void Player::setDirY(int y)
+{
+	dirY = y;
 }

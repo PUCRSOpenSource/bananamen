@@ -14,7 +14,9 @@ public:
 
 	void die();
 	void draw();
-	void move(int dirX, int dirY, cgf::Game* game);
+	void setDirX(int x);
+	void setDirY(int y);
+	void move(cgf::Game* game);
 	void plantBanana();
 	cgf::Sprite getSprite();
 private:
