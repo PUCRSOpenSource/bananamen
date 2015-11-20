@@ -13,8 +13,9 @@ class Map
 		~Map ();
 
 		void draw (sf::RenderWindow* screen);
-		void update ();
-		bool checkCollision (cgf::Game* game, cgf::Sprite* obj);
+		void update (cgf::Game* game, Player* player1, Player* player2);
+		bool checkCollision (cgf::Game* game, cgf::Sprite obj);
+		sf::Uint16 getCellFromMap (uint8_t layernum, float x, float y);
 
 	private:
 		tmx::MapLoader* map;

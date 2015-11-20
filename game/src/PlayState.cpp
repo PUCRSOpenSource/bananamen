@@ -81,6 +81,7 @@ void PlayState::update(cgf::Game* game)
 {
 	screen = game->getScreen();
 	player1->move(game);
+	map->update(game, player1, player2);
 }
 
 void PlayState::draw(cgf::Game* game)

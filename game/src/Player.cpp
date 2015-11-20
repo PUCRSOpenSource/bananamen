@@ -19,11 +19,13 @@ cgf::Sprite Player::getSprite()
 }
 void Player::move(cgf::Game* game)
 {
-	float x = sprite.getPosition().x + dirX*5;
-	float y = sprite.getPosition().y + dirY*5;
-	sprite.setPosition(x,y);
-	sprite.update(game->getUpdateInterval());
-	dirX = dirY = 0;
+	//float x = sprite.getPosition().x + dirX*5;
+	//float y = sprite.getPosition().y + dirY*5;
+	//sprite.setPosition(x,y);
+	sprite.setXspeed(dirX * 100);
+	sprite.setYspeed(dirY * 100);
+	//sprite.update(game->getUpdateInterval());
+	//dirX = dirY = 0;
 }
 void Player::plantBanana()
 {
