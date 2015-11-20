@@ -1,8 +1,9 @@
+#export LD_LIBRARY_PATH=lib/:lib/Box2D-2.3.0/lib-Linux64/:lib/SFML-2.2/lib-Linux64:lib/glew-1.10/
+
 CC = g++
 HDIR = ./include
 SDIR = ./src
 ODIR = ./obj
-
 IDIR = -I./lib/CGF/include
 IDIR += -I./lib/CGF/include/tmx
 IDIR += -I./lib/CGF/include/pugixml
