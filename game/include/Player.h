@@ -16,12 +16,13 @@ public:
 	void draw();
 	void setDirX(int x);
 	void setDirY(int y);
+	int getDirX();
+	int getDirY();
 	void move(cgf::Game* game);
 	void plantBanana();
-	cgf::Sprite getSprite();
-private:
 	cgf::Sprite sprite;
 	float moveSpeed;
+private:
 	int delay;
 	int explodeLentgh;
 	int dirX;

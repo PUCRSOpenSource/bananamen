@@ -10,7 +10,7 @@ using namespace std;
 
 void PlayState::init()
 {
-	player1 = new Player("data/img/p1.png", 40, 40);
+	player1 = new Player("data/img/p1.png", 32, 32);
 	player2 = new Player("data/img/p2.png", 80, 80);
 
 	map = new Map("map.tmx", 2);
@@ -88,6 +88,6 @@ void PlayState::draw(cgf::Game* game)
 {
 	screen = game->getScreen();
 	map->draw(screen);
-	screen->draw(player1->getSprite());
-	screen->draw(player2->getSprite());
+	screen->draw(player1->sprite);
+	screen->draw(player2->sprite);
 }

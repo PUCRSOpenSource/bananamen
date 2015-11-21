@@ -14,12 +14,13 @@ class Map
 
 		void draw (sf::RenderWindow* screen);
 		void update (cgf::Game* game, Player* player1, Player* player2);
-		bool checkCollision (cgf::Game* game, cgf::Sprite obj);
+		void move(cgf::Game* game, Player* player);
+		bool checkCollision2 (cgf::Game* game, Player* player);
 		sf::Uint16 getCellFromMap (uint8_t layernum, float x, float y);
 
 	private:
 		tmx::MapLoader* map;
-		int collisionLayer;
+		int *collisionLayers;
 		//Banana[] bananas;
 		//Enemy [] enemies;
 };
