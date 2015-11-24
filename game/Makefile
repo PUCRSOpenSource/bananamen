@@ -30,7 +30,9 @@ bananamen.game: $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS)
 .PHONY: clean
 
-all : bananamen.game
+all: bananamen.game
+run: all
+	./bananamen.game
 
 clean:
 	rm -f $(ODIR)/*.o
