@@ -32,7 +32,7 @@ bananamen.game: $(OBJ)
 
 all: bananamen.game
 run: all
-	./bananamen.game
+	LD_LIBRARY_PATH=lib/:lib/Box2D-2.3.0/lib-Linux64/:lib/SFML-2.2/lib-Linux64:lib/glew-1.10/ ./bananamen.game
 
 clean:
 	rm -f $(ODIR)/*.o
