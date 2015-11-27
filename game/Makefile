@@ -24,10 +24,10 @@ _OBJ = Main.o Enemy.o Item.o Map.o MenuState.o Player.o PlayState.o State.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 $(ODIR)/%.o: $(SDIR)/%.cpp $(DEPS)
-	$(CC) -c -o $@ $< $(CFLAGS)
+	LD_LIBRARY_PATH=lib/:lib/Box2D-2.3.0/lib-Linux64/:lib/SFML-2.2/lib-Linux64:lib/glew-1.10/ $(CC) -c -o $@ $< $(CFLAGS)
 
 bananamen.game: $(OBJ)
-	$(CC) -o $@ $^ $(CFLAGS)
+	LD_LIBRARY_PATH=lib/:lib/Box2D-2.3.0/lib-Linux64/:lib/SFML-2.2/lib-Linux64:lib/glew-1.10/ $(CC) -o $@ $^ $(CFLAGS)
 .PHONY: clean
 
 all: bananamen.game
