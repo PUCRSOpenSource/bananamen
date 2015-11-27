@@ -20,7 +20,7 @@ CFLAGS = -std=c++11 $(LIBDIR) -I$(HDIR) $(IDIR) -lsfml-graphics -lsfml-window -l
 _DEPS = Banana.h Enemy.h Item.h Map.h MenuState.h Player.h PlayState.h State.h
 DEPS  = $(patsubst %,$(HDIR)/%,$(_DEPS))
 
-_OBJ = Main.o Enemy.o Item.o Map.o MenuState.o Player.o PlayState.o State.o
+_OBJ = Main.o Banana.o Enemy.o Item.o Map.o MenuState.o Player.o PlayState.o State.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 $(ODIR)/%.o: $(SDIR)/%.cpp $(DEPS)

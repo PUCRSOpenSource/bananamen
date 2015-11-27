@@ -1,13 +1,21 @@
-#ifndef _BANANA_H
-#define _BANANA_H
+#ifndef _BANANA_H_
+#define _BANANA_H_
+
+#include "Sprite.h"
+
 class Banana
 {
 public:
-	Banana (sf::Sprite sprite, int explodeLentgh);
+	Banana (float x, float y, int explodeLength);
+	Banana (){};
+
 	virtual ~Banana ();
 
+	void explode();
+	cgf::Sprite sprite;
 private:
-	int explodeLentgh;
-	int timer;
+	int explodeLength;
+	int explodeTime;
+	sf::Clock clock;
 };
-#endif /* ifndef _BANANA_H_ */
+#endif

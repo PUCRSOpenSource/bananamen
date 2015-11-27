@@ -52,7 +52,20 @@ void Map::move(cgf::Game* game, Player* player)
 	}
 	player->sprite.update(game->getUpdateInterval());
 	player->setDirX(0);
-	player->setDirY(0);	
+	player->setDirY(0);
+}
+
+void Map::putBomb(Player* player, sf::RenderWindow* screen)
+{
+	float x = player->sprite.getPosition().x;
+	float y = player->sprite.getPosition().y;
+	int explodeLentgh = player->getExplodeLength();
+	Banana* banana = new Banana(x, y, explodeLentgh);
+	bananas.push_back(banana);
+}
+
+vector<Banana*> Map::getBananas(){
+	return bananas;
 }
 
 bool Map::checkCollision2(cgf::Game* game, Player* player)
@@ -82,3 +95,4 @@ sf::Uint16 Map::getCellFromMap(uint8_t layernum, float x, float y)
     int row = floor(y / tilesize.y);
     return layer.tiles[row*mapsize.x + col].gid;
 }
+

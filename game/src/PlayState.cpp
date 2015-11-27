@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include <cmath>
 #include "Game.h"
 #include "PlayState.h"
@@ -95,6 +96,12 @@ void PlayState::handleEvents(cgf::Game* game)
 
 	if(im->testEvent("info"))
 		game->toggleStats();
+
+	if(im->testEvent("bomb1"))
+		map->putBomb(player1, screen);
+
+	if(im->testEvent("bomb2"))
+		map->putBomb(player2, screen);
 }
 
 void PlayState::update(cgf::Game* game)
@@ -103,6 +110,7 @@ void PlayState::update(cgf::Game* game)
 	player1->update();
 	player2->update();
 	map->update(game, player1, player2);
+
 }
 
 void PlayState::draw(cgf::Game* game)
@@ -111,4 +119,9 @@ void PlayState::draw(cgf::Game* game)
 	map->draw(screen);
 	screen->draw(player1->sprite);
 	screen->draw(player2->sprite);
+	std::vector<Banana* > bananas = map->getBananas();
+	int i;
+	int len = bananas.size();
+	for (i = 0; i < len; ++i)
+		screen->draw(bananas[i]->sprite);
 }
