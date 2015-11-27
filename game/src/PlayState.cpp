@@ -100,8 +100,8 @@ void PlayState::handleEvents(cgf::Game* game)
 void PlayState::update(cgf::Game* game)
 {
 	screen = game->getScreen();
-	player1->move(game);
-	player2->move(game);
+	player1->update();
+	player2->update();
 	map->update(game, player1, player2);
 }
 

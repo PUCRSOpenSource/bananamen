@@ -18,14 +18,18 @@ public:
 	void setDirY(int y);
 	int getDirX();
 	int getDirY();
-	void move(cgf::Game* game);
 	void plantBanana();
 	cgf::Sprite sprite;
 	float moveSpeed;
+	void update();
 private:
 	int delay;
 	int explodeLentgh;
 	int dirX;
 	int dirY;
+	int animationTimer;
+	int getAnimationSpeed();
+	void setAnimation();
+	int direction;
 };
 #endif /* ifndef _PLAYER_H */
