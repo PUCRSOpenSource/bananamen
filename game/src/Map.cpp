@@ -21,6 +21,7 @@ void Map::draw(sf::RenderWindow* screen)
 void Map::update(cgf::Game* game, Player* player1, Player* player2)
 {
 	move(game, player1);
+	move(game, player2);
 }
 
 void Map::move(cgf::Game* game, Player* player)
