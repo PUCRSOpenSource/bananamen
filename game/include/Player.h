@@ -18,13 +18,14 @@ public:
 	void setDirY(int y);
 	int getDirX();
 	int getDirY();
+	int getExplodeLength();
 	void move(cgf::Game* game);
 	void plantBanana();
 	cgf::Sprite sprite;
 	float moveSpeed;
 private:
 	int delay;
-	int explodeLentgh;
+	int explodeLength;
 	int dirX;
 	int dirY;
 };

@@ -45,3 +45,7 @@ int Player::getDirY()
 {
 	return dirY;
 }
+int Player::getExplodeLength()
+{
+	return explodeLength;
+}
