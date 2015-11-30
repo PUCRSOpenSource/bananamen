@@ -45,7 +45,7 @@ void MenuState::handleEvents(cgf::Game* game)
 
 				// key pressed
 			case sf::Event::KeyPressed:
-				if(event.key.code == sf::Keyboard::Space)
+				if(event.key.code == sf::Keyboard::I)
 					game->changeState(PlayState::instance());
 				if(event.key.code == sf::Keyboard::Escape)
 					game->quit();
@@ -63,7 +63,7 @@ void MenuState::update(cgf::Game* game)
 
 void MenuState::draw(cgf::Game *game)
 {
-	menuSprite.setPosition(50,50);
+//	menuSprite.setPosition(50,50);
 	game->getScreen()->draw(menuSprite);
 }
 
