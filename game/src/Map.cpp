@@ -55,12 +55,9 @@ void Map::move(cgf::Game* game, Player* player)
 	player->setDirY(0);
 }
 
-void Map::putBomb(Player* player, sf::RenderWindow* screen)
+void Map::putBomb(Player* player)
 {
-	float x = player->sprite.getPosition().x;
-	float y = player->sprite.getPosition().y;
-	int explodeLentgh = player->getExplodeLength();
-	Banana* banana = new Banana(x, y, explodeLentgh);
+	Banana* banana = new Banana(player);
 	bananas.push_back(banana);
 }
 

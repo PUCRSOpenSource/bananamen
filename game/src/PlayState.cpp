@@ -98,10 +98,10 @@ void PlayState::handleEvents(cgf::Game* game)
 		game->toggleStats();
 
 	if(im->testEvent("bomb1"))
-		map->putBomb(player1, screen);
+		map->putBomb(player1);
 
 	if(im->testEvent("bomb2"))
-		map->putBomb(player2, screen);
+		map->putBomb(player2);
 }
 
 void PlayState::update(cgf::Game* game)

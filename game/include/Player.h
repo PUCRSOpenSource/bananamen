@@ -19,6 +19,7 @@ public:
 	int getDirX();
 	int getDirY();
 	int getExplodeLength();
+	int getMaxBananas();
 	void plantBanana();
 	cgf::Sprite sprite;
 	float moveSpeed;
@@ -26,6 +27,7 @@ public:
 private:
 	int delay;
 	int explodeLength;
+	int maxBananas;
 	int dirX;
 	int dirY;
 	int animationTimer;

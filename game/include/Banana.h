@@ -2,11 +2,12 @@
 #define _BANANA_H_
 
 #include "Sprite.h"
+#include "Player.h"
 
 class Banana
 {
 public:
-	Banana (float x, float y, int explodeLength);
+	Banana (Player* player);
 	Banana (){};
 
 	virtual ~Banana ();
@@ -16,6 +17,7 @@ public:
 private:
 	int explodeLength;
 	int explodeTime;
+	Player* player;
 	sf::Clock clock;
 };
 #endif

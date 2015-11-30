@@ -2,13 +2,17 @@
 
 using namespace std;
 
-Banana::Banana(float x, float y, int explodeLength)
+Banana::Banana(Player* player)
 {
 	sprite.load("data/img/bomba.png");
+	float x = player->sprite.getPosition().x;
+	float y = player->sprite.getPosition().y;
+	explodeLength = player->getExplodeLength();
 	x-= (int)x%32;
 	y-= (int)y%32;
 	sprite.setPosition(x, y);
-	sprite.setScale(0.10, 0.10);
+	sprite.setScale(0.75, 0.75);
+	clock.restart();
 }
 
 Banana::~Banana()

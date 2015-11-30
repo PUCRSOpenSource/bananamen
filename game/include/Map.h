@@ -18,7 +18,7 @@ class Map
 		void draw (sf::RenderWindow* screen);
 		void update (cgf::Game* game, Player* player1, Player* player2);
 		void move(cgf::Game* game, Player* player);
-		void putBomb(Player* player, sf::RenderWindow* screen);
+		void putBomb(Player* player);
 		bool checkCollision2 (cgf::Game* game, Player* player);
 		std::vector<Banana* > getBananas();
 		sf::Uint16 getCellFromMap (uint8_t layernum, float x, float y);
