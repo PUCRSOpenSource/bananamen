@@ -22,6 +22,12 @@ void Map::update(cgf::Game* game, Player* player1, Player* player2)
 {
 	move(game, player1);
 	move(game, player2);
+	for (int i = 0; i < bananas.size(); i++)
+	{
+		if (bananas[i]->wantsToExplode()){
+			bananas.erase(bananas.begin() + i);
+		}
+	}	
 }
 
 void Map::move(cgf::Game* game, Player* player)

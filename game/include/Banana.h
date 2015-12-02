@@ -3,17 +3,19 @@
 
 #include "Sprite.h"
 #include "Player.h"
+#include "Explosion.h"
 
 class Banana
 {
 public:
 	Banana (Player* player);
-	Banana (){};
+//	Banana (){};
 
 	virtual ~Banana ();
 
-	void explode();
 	cgf::Sprite sprite;
+	bool wantsToExplode();
+	Explosion getExplosion();
 private:
 	int explodeLength;
 	int explodeTime;

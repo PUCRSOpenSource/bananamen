@@ -1,5 +1,4 @@
 #include "Banana.h"
-
 using namespace std;
 
 Banana::Banana(Player* player)
@@ -13,8 +12,19 @@ Banana::Banana(Player* player)
 	sprite.setPosition(x, y);
 	sprite.setScale(0.75, 0.75);
 	clock.restart();
+	explodeTime = 3;
 }
 
 Banana::~Banana()
 {
+}
+
+bool Banana::wantsToExplode()
+{
+	return clock.getElapsedTime().asSeconds() > explodeTime;
+}
+
+Explosion Banana::getExplosion()
+{
+	return new Explosion(sprite, explodeLength);
 }

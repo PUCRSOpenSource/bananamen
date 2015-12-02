@@ -124,4 +124,4 @@ void PlayState::draw(cgf::Game* game)
 		screen->draw(bananas[i]->sprite);
 	screen->draw(player1->sprite);
 	screen->draw(player2->sprite);
-	}
+}

@@ -27,7 +27,6 @@ class Map
 		tmx::MapLoader* map;
 		int *collisionLayers;
 		std::vector<Banana*> bananas;
-		//Banana[] bananas;
 		//Enemy [] enemies;
 };
 #endif
