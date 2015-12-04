@@ -6,7 +6,7 @@ Banana::Banana(Player* player)
 	sprite.load("data/img/bomba.png");
 	float x = player->sprite.getPosition().x;
 	float y = player->sprite.getPosition().y;
-	explodeLength = player->getExplodeLength();
+	explodeLength = 5;//player->getExplodeLength();
 	x-= (int)x%32;
 	y-= (int)y%32;
 	sprite.setPosition(x, y);
@@ -23,8 +23,3 @@ bool Banana::wantsToExplode()
 {
 	return clock.getElapsedTime().asSeconds() > explodeTime;
 }
-
-//Explosion Banana::getExplosion()
-//{
-//	return new Explosion(sprite, explodeLength);
-//}

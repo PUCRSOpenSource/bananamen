@@ -17,17 +17,29 @@ Map::~Map()
 void Map::draw(sf::RenderWindow* screen)
 {
 	map->Draw(*screen);
+	int len = explosions.size();
+	for(int i = 0; i < len; i++)
+		screen->draw(explosions[i]->sprite);
+	len = bananas.size();
+	for(int i = 0; i < len; i++)
+		screen->draw(bananas[i]->sprite);
+	
 }
 void Map::update(cgf::Game* game, Player* player1, Player* player2)
 {
 	move(game, player1);
 	move(game, player2);
-	for (int i = 0; i < bananas.size(); i++)
+	for (int i = 0; i < explosions.size(); i++)
 	{
-		if (bananas[i]->wantsToExplode()){
+		if (explosions[i]->finished())
+			explosions.erase(explosions.begin() + i);
+	}
+	for (int i = 0; i < bananas.size(); i++)
+		if (bananas[i]->wantsToExplode())
+		{
+			explode(bananas[i]);
 			bananas.erase(bananas.begin() + i);
 		}
-	}	
 }
 
 void Map::move(cgf::Game* game, Player* player)
@@ -40,7 +52,7 @@ void Map::move(cgf::Game* game, Player* player)
 	while(amount >= 1){
 		float x1 = x + (player->getDirX() * amount);
 		player->sprite.setPosition(x1, y);
-		if(!checkCollision2(game, player))
+		if(!checkCollision2(player->sprite))
 			break;
 		player->sprite.setPosition(x, y);
 		amount /= 2.0f;	
@@ -51,7 +63,7 @@ void Map::move(cgf::Game* game, Player* player)
 	while(amount >= 1){
 		float y1 = y + (player->getDirY() * amount);
 		player->sprite.setPosition(x, y1);
-		if(!checkCollision2(game, player))
+		if(!checkCollision2(player->sprite))
 			break;
 		player->sprite.setPosition(x, y);
 		amount /= 2.0f;	
@@ -67,17 +79,13 @@ void Map::putBomb(Player* player)
 	bananas.push_back(banana);
 }
 
-vector<Banana*> Map::getBananas(){
-	return bananas;
-}
-
-bool Map::checkCollision2(cgf::Game* game, Player* player)
+bool Map::checkCollision2(cgf::Sprite sprite)
 {
-	float x = player->sprite.getPosition().x;
-	float y = player->sprite.getPosition().y;
-	sf::Vector2u size = player->sprite.getSize();
-	size.x *= player->sprite.getScale().x;
-	size.y *= player->sprite.getScale().y;
+	float x = sprite.getPosition().x;
+	float y = sprite.getPosition().y;
+	sf::Vector2u size = sprite.getSize();
+	size.x *= sprite.getScale().x;
+	size.y *= sprite.getScale().y;
 	for(int k = 0; k <= 1; k++)
 		for(int i = 0; i <= 1; i++)
 			for(int j = 0; j <= 1; j++)
@@ -97,5 +105,38 @@ sf::Uint16 Map::getCellFromMap(uint8_t layernum, float x, float y)
     int col = floor(x / tilesize.x);
     int row = floor(y / tilesize.y);
     return layer.tiles[row*mapsize.x + col].gid;
+}
+
+void Map::explode(Banana* banana)
+{
+	float startX = banana->sprite.getPosition().x;
+	float startY = banana->sprite.getPosition().y;
+	makeExplosion(startX, startY);
+	float tileSize = banana->sprite.getSize().x * banana->sprite.getScale().x;
+	bool left = true, right = true, up = true, down = true;
+	for (int i = 1; i < banana->explodeLength; i++)
+	{
+		cout << i << endl;
+		if(right)
+			right = makeExplosion(startX + tileSize * i, startY);
+		if(left)
+			left = makeExplosion(startX - tileSize * i, startY);
+		if(up)
+			up = makeExplosion(startX, startY + tileSize * i);
+		if(down)
+			down = makeExplosion(startX, startY - tileSize * i);
+	}
+}
+
+bool Map::makeExplosion(float x, float y)
+{
+	Explosion* explosion;
+	explosion = new Explosion();
+	explosion->sprite.load("data/img/explosao.png");
+	explosion->sprite.setPosition(x, y);
+	if (checkCollision2(explosion->sprite))
+		return false;
+	explosions.push_back(explosion);
+	return true;
 }
 

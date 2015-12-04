@@ -117,11 +117,6 @@ void PlayState::draw(cgf::Game* game)
 {
 	map->draw(screen);
 	screen = game->getScreen();
-	std::vector<Banana* > bananas = map->getBananas();
-	int i;
-	int len = bananas.size();
-	for (i = 0; i < len; ++i)
-		screen->draw(bananas[i]->sprite);
 	screen->draw(player1->sprite);
 	screen->draw(player2->sprite);
 }

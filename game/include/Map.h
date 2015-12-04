@@ -19,14 +19,15 @@ class Map
 		void update (cgf::Game* game, Player* player1, Player* player2);
 		void move(cgf::Game* game, Player* player);
 		void putBomb(Player* player);
-		bool checkCollision2 (cgf::Game* game, Player* player);
-		std::vector<Banana* > getBananas();
+		bool checkCollision2 (cgf::Sprite sprite);
 		sf::Uint16 getCellFromMap (uint8_t layernum, float x, float y);
 
 	private:
 		tmx::MapLoader* map;
 		int *collisionLayers;
 		std::vector<Banana*> bananas;
-		//Enemy [] enemies;
+		std::vector<Explosion*> explosions;
+		void explode(Banana* banana);
+		bool makeExplosion(float x, float y);
 };
 #endif
