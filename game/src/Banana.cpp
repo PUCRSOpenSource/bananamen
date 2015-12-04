@@ -24,7 +24,7 @@ bool Banana::wantsToExplode()
 	return clock.getElapsedTime().asSeconds() > explodeTime;
 }
 
-Explosion Banana::getExplosion()
-{
-	return new Explosion(sprite, explodeLength);
-}
+//Explosion Banana::getExplosion()
+//{
+//	return new Explosion(sprite, explodeLength);
+//}

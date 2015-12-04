@@ -1,14 +1,14 @@
 #include "Explosion.h"
+using namespace std;
 
-Explosion::Explosion(Sprite* bananaSprite, int explodeLength)
+Explosion::Explosion(cgf::Sprite* bananaSprite, int explodeLength)
 {
-	sprite->load("data/img/explosao.png");
-	sprite->setPosition(position);
+	sprite.load("data/img/explosao.png");
+	sprite.setPosition(bananaSprite->getPosition());
 	length = explodeLength;
-	
 }
 
-Explosion::update(Player* p1, Player* p2)
+void Explosion::update(Player* p1, Player* p2)
 {
 
 }

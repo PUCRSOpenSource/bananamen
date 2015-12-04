@@ -8,16 +8,17 @@
 class Explosion
 {
 public:
-	Explosion (Sprite* bananaSprite, int explodeLength);
+	Explosion (cgf::Sprite* bananaSprite, int explodeLength);
 //	Explosion () {};
 
-	virtual ~Explosion ();
+	virtual ~Explosion (){};
 
 	cgf::Sprite sprite;
-	bool finished();
-	update(Player* p1, Player* p2);
+//	bool finished();
+	void update(Player* p1, Player* p2);
 
 private:
-	int explosionTime();
+//	int explosionTime();
 	int length;
+};
 #endif

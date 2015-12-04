@@ -3,7 +3,7 @@
 
 #include "Sprite.h"
 #include "Player.h"
-#include "Explosion.h"
+//#include "Explosion.h"
 
 class Banana
 {
@@ -15,7 +15,7 @@ public:
 
 	cgf::Sprite sprite;
 	bool wantsToExplode();
-	Explosion getExplosion();
+	//Explosion getExplosion();
 private:
 	int explodeLength;
 	int explodeTime;
