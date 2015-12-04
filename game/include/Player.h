@@ -12,7 +12,6 @@ public:
 
 	virtual ~Player ();
 
-	void die();
 	void draw();
 	void setDirX(int x);
 	void setDirY(int y);
@@ -24,6 +23,7 @@ public:
 	cgf::Sprite sprite;
 	float moveSpeed;
 	void update();
+	bool dead;
 private:
 	int delay;
 	int explodeLength;

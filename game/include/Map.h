@@ -20,6 +20,7 @@ class Map
 		void move(cgf::Game* game, Player* player);
 		void putBomb(Player* player);
 		bool checkCollision2 (cgf::Sprite sprite);
+		bool checkCollision(cgf::Sprite s1, cgf::Sprite s2);
 		sf::Uint16 getCellFromMap (uint8_t layernum, float x, float y);
 
 	private:
@@ -29,5 +30,6 @@ class Map
 		std::vector<Explosion*> explosions;
 		void explode(Banana* banana);
 		bool makeExplosion(float x, float y);
+		bool between(float a1, float a2, float b);
 };
 #endif
