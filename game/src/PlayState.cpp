@@ -61,10 +61,10 @@ void PlayState::handleEvents(cgf::Game* game)
 	screen = game->getScreen();
 	sf::View view = screen->getView();
 	sf::Event event;
-	//if(firstTime) {
-		//setup(game);
-		//firstTime = false;
-	//}
+	if(firstTime) {
+		setup(game);
+		firstTime = false;
+	}
 
 	while (screen->pollEvent(event))
 		if(event.type == sf::Event::Closed)
@@ -135,7 +135,7 @@ void PlayState::setup(cgf::Game* game)
 	//screen->setVerticalSyncEnabled(true);
 
 	music.openFromFile("data/audio/map1.ogg");
-	music.setVolume(50);
+	music.setVolume(95);
 	music.setLoop(true);
 	music.play();
 }
