@@ -60,12 +60,14 @@ void PlayState::handleEvents(cgf::Game* game)
 	screen = game->getScreen();
 	sf::View view = screen->getView();
 	sf::Event event;
+	//if(firstTime) {
+		//setup(game);
+		//firstTime = false;
+	//}
 
 	while (screen->pollEvent(event))
 		if(event.type == sf::Event::Closed)
 			game->quit();
-	
-	int newDir = currentDir;
 
 	if(im->testEvent("left1"))
 		player1->setDirX(-1);
@@ -110,7 +112,6 @@ void PlayState::update(cgf::Game* game)
 	player1->update();
 	player2->update();
 	map->update(game, player1, player2);
-
 }
 
 void PlayState::draw(cgf::Game* game)
@@ -119,4 +120,17 @@ void PlayState::draw(cgf::Game* game)
 	screen = game->getScreen();
 	screen->draw(player1->sprite);
 	screen->draw(player2->sprite);
+}
+void PlayState::setup(cgf::Game* game)
+{
+	cout << "++++++++++++++++++" << endl;
+	cout << "|PlayState: Setup|" << endl;
+	cout << "++++++++++++++++++" << endl;
+	//screen = game->getScreen();
+	//screen->setVerticalSyncEnabled(true);
+
+	music.openFromFile("data/audio/map1.ogg");
+	music.setVolume(50);
+	music.setLoop(true);
+	music.play();
 }
