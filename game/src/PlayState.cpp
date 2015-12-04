@@ -3,6 +3,7 @@
 #include <cmath>
 #include "Game.h"
 #include "PlayState.h"
+#include "WinState.h"
 #include "InputManager.h"
 
 PlayState PlayState::m_PlayState;
@@ -112,6 +113,10 @@ void PlayState::update(cgf::Game* game)
 	player1->update();
 	player2->update();
 	map->update(game, player1, player2);
+	if (player1->dead)
+		game->changeState(WinState::instance());
+	if (player2->dead)
+		game->changeState(WinState::instance());
 }
 
 void PlayState::draw(cgf::Game* game)

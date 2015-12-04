@@ -15,6 +15,7 @@ Player::Player (char* spritePath, float x, float y)
 //	sprite.setFrameRange(0,0);
 //	sprite.setAnimRate(4);
 	direction = 0;
+	dead = false;
 }
 Player::~Player()
 {

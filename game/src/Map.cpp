@@ -31,6 +31,10 @@ void Map::update(cgf::Game* game, Player* player1, Player* player2)
 	move(game, player2);
 	for (int i = 0; i < explosions.size(); i++)
 	{
+		if (checkCollision(explosions[i]->sprite, player1->sprite))
+			player1->dead = true;	
+		if (checkCollision(explosions[i]->sprite, player2->sprite))
+			player2->dead = true;
 		if (explosions[i]->finished())
 			explosions.erase(explosions.begin() + i);
 	}
@@ -94,6 +98,25 @@ bool Map::checkCollision2(cgf::Sprite sprite)
 	return false;
 }
 
+bool Map::checkCollision(cgf::Sprite s1, cgf::Sprite s2)
+{
+	float x11 = s1.getPosition().x,
+	      y11 = s1.getPosition().y,
+	      x12 = x11 + (s1.getSize().x * s1.getScale().x),
+	      y12 = y11 + (s1.getSize().y * s1.getScale().y),
+    	      x21 = s2.getPosition().x,
+	      y21 = s2.getPosition().y,
+	      x22 = x21 + (s2.getSize().x * s2.getScale().x),
+	      y22 = y21 + (s2.getSize().y * s2.getScale().y);
+	return (between(x11, x12, x21)
+	     || between(x11, x12, x22)) && 
+	       (between(y11, y12, y21)
+	     || between(y11, y12, y21));
+}
+
+bool Map::between(float a1, float a2, float b){
+	return b >= a1 && b <= a2;
+}
 sf::Uint16 Map::getCellFromMap(uint8_t layernum, float x, float y)
 {
     auto layers = map->GetLayers();
@@ -116,7 +139,6 @@ void Map::explode(Banana* banana)
 	bool left = true, right = true, up = true, down = true;
 	for (int i = 1; i < banana->explodeLength; i++)
 	{
-		cout << i << endl;
 		if(right)
 			right = makeExplosion(startX + tileSize * i, startY);
 		if(left)
