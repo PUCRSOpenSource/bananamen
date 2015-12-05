@@ -109,9 +109,13 @@ bool Map::checkCollision(cgf::Sprite s1, cgf::Sprite s2)
 	      x22 = x21 + (s2.getSize().x * s2.getScale().x),
 	      y22 = y21 + (s2.getSize().y * s2.getScale().y);
 	return (between(x11, x12, x21)
-	     || between(x11, x12, x22)) && 
+	     || between(x11, x12, x22)
+	     || between(x21, x22, x11)
+	     || between(x21, x22, x12)) && 
 	       (between(y11, y12, y21)
-	     || between(y11, y12, y21));
+	     || between(y11, y12, y22)
+	     || between(y21, y12, y11)
+	     || between(y21, y12, y12));
 }
 
 bool Map::between(float a1, float a2, float b){

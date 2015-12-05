@@ -23,6 +23,7 @@ class WinState : public cgf::GameState
 		void handleEvents(cgf::Game* game);
 		void update(cgf::Game* game);
 		void draw(cgf::Game* game);
+		void setWinner(int player);
 
 		// Implement Singleton Pattern
 		static WinState* instance()
@@ -42,7 +43,8 @@ class WinState : public cgf::GameState
 
 		sf::Font font;
 		sf::Text text;
-
+		int winner;
+		cgf::Sprite sprite;
 		// Checks collision between a sprite and a map layer
 		//bool checkCollision(uint8_t layer, cgf::Game* game, cgf::Sprite* obj);
 

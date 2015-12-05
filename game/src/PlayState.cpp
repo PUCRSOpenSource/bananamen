@@ -20,7 +20,7 @@ void PlayState::init()
 	im = cgf::InputManager::instance();
 
 	im->addKeyInput("quit", sf::Keyboard::Escape);
-	im->addKeyInput("info", sf::Keyboard::I);
+	im->addKeyInput("info", sf::Keyboard::R);
 
 	im->addKeyInput("up1",    sf::Keyboard::Up);
 	im->addKeyInput("down1",  sf::Keyboard::Down);
@@ -113,10 +113,18 @@ void PlayState::update(cgf::Game* game)
 	player1->update();
 	player2->update();
 	map->update(game, player1, player2);
-	if (player1->dead)
-		game->changeState(WinState::instance());
-	if (player2->dead)
-		game->changeState(WinState::instance());
+	if (player1->dead || player2->dead)
+	{
+		WinState* state2 = WinState::instance();
+		if (player1->dead && player2->dead)
+		       state2->setWinner(0);
+		else if (player1->dead)
+			state2->setWinner(2);
+		else	
+			state2->setWinner(1);
+		game->changeState(state2);
+		//if (player1->dead && player2->dead)
+	}
 }
 
 void PlayState::draw(cgf::Game* game)
