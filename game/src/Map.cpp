@@ -47,6 +47,17 @@ void Map::update(cgf::Game* game, Player* player1, Player* player2)
 			explode(bananas[i]);
 			bananas.erase(bananas.begin() + i);
 		}
+	for (int i = 0; i < powerups.size(); i++)
+		if (checkCollision(powerups[i]->sprite, player1->sprite))
+			{
+				powerups[i]->upgrade(player1);
+				powerups.erase(powerups.begin() + i);
+			}
+		else if (checkCollision(powerups[i]->sprite, player2->sprite))
+			{
+				powerups[i]->upgrade(player2);
+				powerups.erase(powerups.begin() + i);
+			}
 	if(rand() % 100 == 0)
 	{
 		cout << "OK" << endl;

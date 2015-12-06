@@ -8,25 +8,15 @@ Player::Player (char* spritePath, float x, float y)
 	sprite.load(spritePath,16,16,0,0,0,0,8,1,8);
 	sprite.setPosition(x, y);
 	sprite.setScale(1.5, 1.5);
-//	sprite.play();
 	dirX = dirY = 0;
 	moveSpeed = 3;
 	animationTimer = 0;
-//	sprite.setFrameRange(0,0);
-//	sprite.setAnimRate(4);
 	direction = 0;
 	dead = false;
+	explodeLength = 1;
 }
 Player::~Player()
 {
-}
-
-void Player::setAnimation()
-{
-	if (dirX == 0 && dirY == 1)
-	{
-//		sprite.setFrameRange(4, 5);
-	}
 }
 
 void Player::update()
@@ -90,4 +80,12 @@ int Player::getDirY()
 int Player::getExplodeLength()
 {
 	return explodeLength;
+}
+
+void Player::upgrade(int power)
+{
+	if (power == 0)
+		moveSpeed++;	
+	else if (power == 1)
+		explodeLength++;
 }

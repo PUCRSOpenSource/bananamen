@@ -2,6 +2,7 @@
 #define POWERUP_H_
 
 #include "Sprite.h"
+#include "Player.h"
 
 class Powerup
 {
@@ -13,5 +14,8 @@ public:
 
 	void draw();
 	cgf::Sprite sprite;
+	void upgrade(Player* player);
+private:
+	int power;
 };
 #endif 
