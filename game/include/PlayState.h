@@ -51,6 +51,8 @@ class PlayState : public cgf::GameState
 		Player* player1;
 		Player* player2;
 		char mapToLoad;
+		char* musicPath;
+		char* path;
 };
 
 #endif

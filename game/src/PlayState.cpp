@@ -14,13 +14,21 @@ void PlayState::init()
 {
 	player1 = new Player("data/img/p1.png", 32, 32);
 	player2 = new Player("data/img/p2.png", 416, 416);
-	char* path;
 	if(mapToLoad == '1')
+	{
 		path = "map1.tmx";
+		musicPath = "data/audio/map1.ogg";
+	}
 	else if(mapToLoad == '2')
+	{
 		path = "map2.tmx";
+		musicPath = "data/audio/map2.ogg";
+	}
 	else
+	{
 		path = "map3.tmx";
+		musicPath = "data/audio/map1.ogg";
+	}
 	map = new Map(path, 2);
 
 	im = cgf::InputManager::instance();
@@ -146,7 +154,7 @@ void PlayState::setup(cgf::Game* game)
 	screen = game->getScreen();
 	screen->setVerticalSyncEnabled(true);
 
-	music.openFromFile("data/audio/map1.ogg");
+	music.openFromFile(musicPath);
 	music.setVolume(50);
 	music.setLoop(true);
 	music.play();
