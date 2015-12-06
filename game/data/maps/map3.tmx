@@ -15,17 +15,17 @@
  </tileset>
  <layer name="ground" width="15" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjZmBgYB7Fo3gUDxgGAKuMAqQ=
+   eJyzZWBgsB3Fo3gUDxgGALI6NZ4=
   </data>
  </layer>
- <layer name="border" width="15" height="15">
+ <layer name="buildings" width="15" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYmBgYKIAkwNG9Y7qHY56ycUAyUQAcQ==
+   eJwzZWBgMAFiUyA2hrJNoGxjJDFjNHmQenKAHRDbU6DGjkx7iQXIdhPjVmLNxGUHsW4hF2DTj81cdDE7Mu0nJvwImUuJveSGF0w/LpqW+gGGVw8A
   </data>
  </layer>
  <layer name="bushes" width="15" height="15">
   <data encoding="base64" compression="zlib">
-   eJylkUEOACAIw+D/n/ZOBivIxbCIHTPiv9L0ZJaeG343m0XLRpu4RHe5dNyqVT+KTTJXHMWdfG/+xd1zO6k59R7NmfiiOaj+Wg9xKABB
+   eJxjYCAfBBIphk9vIBYxdHXo4oF45HC5BZd9gTjkCJmHz1xy5LG5hxQzcOkhR4xWgBz78cUxofgn1S3E6iE13eCyE2YGAD7lDzE=
   </data>
  </layer>
 </map>
