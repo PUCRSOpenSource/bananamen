@@ -15,7 +15,7 @@ void PlayState::init()
 	player1 = new Player("data/img/p1.png", 32, 32);
 	player2 = new Player("data/img/p2.png", 100, 100);
 
-	map = new Map("map.tmx", 2);
+	map = new Map("map2.tmx", 2);
 
 	im = cgf::InputManager::instance();
 
