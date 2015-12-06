@@ -9,11 +9,7 @@ Map::Map(char* mapPath, uint8_t collisionLayer)
 	this->collisionLayers[1] = 2;
 	map = new tmx::MapLoader("data/maps");
 	map->Load(mapPath);
-	explodeSoundBuffer.loadFromFile("data/audio/explosion.wav");
-	explodeSound.setBuffer(explodeSoundBuffer);
-	explodeSound.setAttenuation(0);
 }
-
 Map::~Map()
 {
 }
@@ -27,7 +23,7 @@ void Map::draw(sf::RenderWindow* screen)
 	len = bananas.size();
 	for(int i = 0; i < len; i++)
 		screen->draw(bananas[i]->sprite);
-
+	
 }
 void Map::update(cgf::Game* game, Player* player1, Player* player2)
 {
@@ -36,7 +32,7 @@ void Map::update(cgf::Game* game, Player* player1, Player* player2)
 	for (int i = 0; i < explosions.size(); i++)
 	{
 		if (checkCollision(explosions[i]->sprite, player1->sprite))
-			player1->dead = true;
+			player1->dead = true;	
 		if (checkCollision(explosions[i]->sprite, player2->sprite))
 			player2->dead = true;
 		if (explosions[i]->finished())
@@ -63,7 +59,7 @@ void Map::move(cgf::Game* game, Player* player)
 		if(!checkCollision2(player->sprite))
 			break;
 		player->sprite.setPosition(x, y);
-		amount /= 2.0f;
+		amount /= 2.0f;	
 	}
 	//test move y
 	x = player->sprite.getPosition().x;
@@ -74,7 +70,7 @@ void Map::move(cgf::Game* game, Player* player)
 		if(!checkCollision2(player->sprite))
 			break;
 		player->sprite.setPosition(x, y);
-		amount /= 2.0f;
+		amount /= 2.0f;	
 	}
 	player->sprite.update(game->getUpdateInterval());
 	player->setDirX(0);
@@ -104,17 +100,22 @@ bool Map::checkCollision2(cgf::Sprite sprite)
 
 bool Map::checkCollision(cgf::Sprite s1, cgf::Sprite s2)
 {
-	float x11 = s1.getPosition().x;
-	float y11 = s1.getPosition().y;
-	float x12 = x11 + (s1.getSize().x * s1.getScale().x);
-	float y12 = y11 + (s1.getSize().y * s1.getScale().y);
-	float x21 = s2.getPosition().x;
-	float y21 = s2.getPosition().y;
-	float x22 = x21 + (s2.getSize().x * s2.getScale().x);
-	float y22 = y21 + (s2.getSize().y * s2.getScale().y);
-
-	return (between(x11, x12, x21) || between(x11, x12, x22) || between(x21, x22, x11) || between(x21, x22, x12)) &&
-		(between(y11, y12, y21)|| between(y11, y12, y22) ||  between(y21, y12, y11)|| between(y21, y12, y12));
+	float x11 = s1.getPosition().x,
+	      y11 = s1.getPosition().y,
+	      x12 = x11 + (s1.getSize().x * s1.getScale().x),
+	      y12 = y11 + (s1.getSize().y * s1.getScale().y),
+    	      x21 = s2.getPosition().x,
+	      y21 = s2.getPosition().y,
+	      x22 = x21 + (s2.getSize().x * s2.getScale().x),
+	      y22 = y21 + (s2.getSize().y * s2.getScale().y);
+	return (between(x11, x12, x21)
+	     || between(x11, x12, x22)
+	     || between(x21, x22, x11)
+	     || between(x21, x22, x12)) && 
+	       (between(y11, y12, y21)
+	     || between(y11, y12, y22)
+	     || between(y21, y22, y11)
+	     || between(y21, y22, y12));
 }
 
 bool Map::between(float a1, float a2, float b){
@@ -122,15 +123,15 @@ bool Map::between(float a1, float a2, float b){
 }
 sf::Uint16 Map::getCellFromMap(uint8_t layernum, float x, float y)
 {
-	auto layers = map->GetLayers();
-	tmx::MapLayer& layer = layers[layernum];
-	sf::Vector2u mapsize = map->GetMapSize();
-	sf::Vector2u tilesize = map->GetMapTileSize();
-	mapsize.x /= tilesize.x;
-	mapsize.y /= tilesize.y;
-	int col = floor(x / tilesize.x);
-	int row = floor(y / tilesize.y);
-	return layer.tiles[row*mapsize.x + col].gid;
+    auto layers = map->GetLayers();
+    tmx::MapLayer& layer = layers[layernum];
+    sf::Vector2u mapsize = map->GetMapSize();
+    sf::Vector2u tilesize = map->GetMapTileSize();
+    mapsize.x /= tilesize.x;
+    mapsize.y /= tilesize.y;
+    int col = floor(x / tilesize.x);
+    int row = floor(y / tilesize.y);
+    return layer.tiles[row*mapsize.x + col].gid;
 }
 
 void Map::explode(Banana* banana)
@@ -151,7 +152,6 @@ void Map::explode(Banana* banana)
 		if(down)
 			down = makeExplosion(startX, startY - tileSize * i);
 	}
-	explodeSound.play();
 }
 
 bool Map::makeExplosion(float x, float y)
