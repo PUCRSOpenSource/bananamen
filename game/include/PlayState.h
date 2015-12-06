@@ -24,7 +24,7 @@ class PlayState : public cgf::GameState
 		void update(cgf::Game* game);
 		void draw(cgf::Game* game);
 		void setup(cgf::Game* game);
-
+		void setMap(char map);
 		static PlayState* instance()
 		{
 			return &m_PlayState;
@@ -43,8 +43,6 @@ class PlayState : public cgf::GameState
 		std::string walkStates[4];
 
 		sf::Music music;
-		sf::SoundBuffer boingSoundBuffer;
-		sf::Sound boingSound;
 		sf::RenderWindow* screen;
 
 		cgf::InputManager* im;
@@ -52,6 +50,7 @@ class PlayState : public cgf::GameState
 		Map* map;
 		Player* player1;
 		Player* player2;
+		char mapToLoad;
 };
 
 #endif

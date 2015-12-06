@@ -46,7 +46,25 @@ void MenuState::handleEvents(cgf::Game* game)
 				// key pressed
 			case sf::Event::KeyPressed:
 				if(event.key.code == sf::Keyboard::I)
-					game->changeState(PlayState::instance());
+					menuSprite.load("data/img/escolhafase.png");
+				if(event.key.code == sf::Keyboard::Num1)
+				{
+					PlayState* state = PlayState::instance();
+					state->setMap('1');	
+					game->changeState(state);
+				}
+				if(event.key.code == sf::Keyboard::Num2)
+				{
+					PlayState* state = PlayState::instance();
+					state->setMap('2');	
+					game->changeState(state);
+				}
+				if(event.key.code == sf::Keyboard::Num3)
+				{
+					PlayState* state = PlayState::instance();
+					state->setMap('3');	
+					game->changeState(state);
+				}
 				if(event.key.code == sf::Keyboard::Escape)
 					game->quit();
 				break;

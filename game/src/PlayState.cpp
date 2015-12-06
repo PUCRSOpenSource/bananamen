@@ -14,8 +14,14 @@ void PlayState::init()
 {
 	player1 = new Player("data/img/p1.png", 32, 32);
 	player2 = new Player("data/img/p2.png", 416, 416);
-
-	map = new Map("map2.tmx", 2);
+	char* path;
+	if(mapToLoad == '1')
+		path = "map1.tmx";
+	else if(mapToLoad == '2')
+		path = "map2.tmx";
+	else
+		path = "map3.tmx";
+	map = new Map(path, 2);
 
 	im = cgf::InputManager::instance();
 
@@ -134,6 +140,7 @@ void PlayState::draw(cgf::Game* game)
 	screen->draw(player1->sprite);
 	screen->draw(player2->sprite);
 }
+
 void PlayState::setup(cgf::Game* game)
 {
 	screen = game->getScreen();
@@ -143,4 +150,9 @@ void PlayState::setup(cgf::Game* game)
 	music.setVolume(50);
 	music.setLoop(true);
 	music.play();
+}
+
+void PlayState::setMap(char map)
+{
+	mapToLoad = map;
 }
