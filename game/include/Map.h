@@ -31,5 +31,8 @@ class Map
 		void explode(Banana* banana);
 		bool makeExplosion(float x, float y);
 		bool between(float a1, float a2, float b);
+
+		sf::SoundBuffer explodeSoundBuffer;
+		sf::Sound explodeSound;
 };
 #endif

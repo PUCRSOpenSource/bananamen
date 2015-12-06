@@ -43,6 +43,8 @@ class PlayState : public cgf::GameState
 		std::string walkStates[4];
 
 		sf::Music music;
+		sf::SoundBuffer boingSoundBuffer;
+		sf::Sound boingSound;
 		sf::RenderWindow* screen;
 
 		cgf::InputManager* im;
