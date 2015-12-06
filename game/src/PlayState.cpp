@@ -13,7 +13,7 @@ using namespace std;
 void PlayState::init()
 {
 	player1 = new Player("data/img/p1.png", 32, 32);
-	player2 = new Player("data/img/p2.png", 100, 100);
+	player2 = new Player("data/img/p2.png", 416, 416);
 
 	map = new Map("map2.tmx", 2);
 
