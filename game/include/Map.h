@@ -8,6 +8,7 @@
 #include "Player.h"
 #include "Sprite.h"
 #include "Banana.h"
+#include "Powerup.h"
 
 class Map
 {
@@ -28,6 +29,7 @@ class Map
 		int *collisionLayers;
 		std::vector<Banana*> bananas;
 		std::vector<Explosion*> explosions;
+		std::vector<Powerup*> powerups;
 		void explode(Banana* banana);
 		bool makeExplosion(float x, float y);
 		bool between(float a1, float a2, float b);

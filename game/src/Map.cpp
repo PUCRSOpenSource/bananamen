@@ -23,6 +23,9 @@ void Map::draw(sf::RenderWindow* screen)
 	len = bananas.size();
 	for(int i = 0; i < len; i++)
 		screen->draw(bananas[i]->sprite);
+	len = powerups.size();
+	for(int i = 0; i < len; i++)
+		screen->draw(powerups[i]->sprite);
 	
 }
 void Map::update(cgf::Game* game, Player* player1, Player* player2)
@@ -44,6 +47,15 @@ void Map::update(cgf::Game* game, Player* player1, Player* player2)
 			explode(bananas[i]);
 			bananas.erase(bananas.begin() + i);
 		}
+	if(rand() % 100 == 0)
+	{
+		cout << "OK" << endl;
+		float x = rand() % 15 * 32;
+		float y = rand() % 15 * 32;
+		Powerup* powerup = new Powerup(x, y);
+		if(!checkCollision2(powerup->sprite))
+			powerups.push_back(powerup);
+	}
 }
 
 void Map::move(cgf::Game* game, Player* player)
