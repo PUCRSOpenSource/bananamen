@@ -18,21 +18,18 @@ public:
 	int getDirX();
 	int getDirY();
 	int getExplodeLength();
-	int getMaxBananas();
 	void plantBanana();
 	cgf::Sprite sprite;
 	float moveSpeed;
 	void update();
 	bool dead;
+	void upgrade(int power);
 private:
-	int delay;
 	int explodeLength;
-	int maxBananas;
 	int dirX;
 	int dirY;
 	int animationTimer;
 	int getAnimationSpeed();
-	void setAnimation();
 	int direction;
 };
 #endif /* ifndef _PLAYER_H */
