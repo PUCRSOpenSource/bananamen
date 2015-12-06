@@ -4,11 +4,14 @@ using namespace std;
 
 Map::Map(char* mapPath, uint8_t collisionLayer)
 {
-	this->collisionLayers = new int[2];//collisionLayer;
+	this->collisionLayers = new int[2];
 	this->collisionLayers[0] = 1;
 	this->collisionLayers[1] = 2;
 	map = new tmx::MapLoader("data/maps");
 	map->Load(mapPath);
+	explodeSoundBuffer.loadFromFile("data/audio/explosion.wav");
+	explodeSound.setBuffer(explodeSoundBuffer);
+	explodeSound.setAttenuation(0);
 }
 Map::~Map()
 {
@@ -175,6 +178,7 @@ void Map::explode(Banana* banana)
 		if(down)
 			down = makeExplosion(startX, startY - tileSize * i);
 	}
+	explodeSound.play();
 }
 
 bool Map::makeExplosion(float x, float y)
