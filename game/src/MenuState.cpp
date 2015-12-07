@@ -65,6 +65,16 @@ void MenuState::handleEvents(cgf::Game* game)
 					state->setMap('3');	
 					game->changeState(state);
 				}
+				if(event.key.code == sf::Keyboard::C)
+				{
+
+					menuSprite.load("data/img/comandos.png");
+				}
+				if(event.key.code == sf::Keyboard::V)
+				{
+
+					menuSprite.load("data/img/menu.png");
+				}
 				if(event.key.code == sf::Keyboard::Escape)
 					game->quit();
 				break;
