@@ -2,7 +2,7 @@ Nomes:
 
 * [Diego Pinto da Jornada](https://github.com/djornada)
 * [Eduardo Hoefel](https://github.com/eduardohoefel)
-* [Gabriel Carlos](https://github.com/eduardohoefel)
+* [Gabriel Carlos](https://github.com/)
 
 #Bananamen
 
